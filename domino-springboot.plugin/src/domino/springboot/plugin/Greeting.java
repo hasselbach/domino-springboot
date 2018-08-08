@@ -1,5 +1,7 @@
 package domino.springboot.plugin;
 
+import javax.validation.constraints.NotNull;
+
 public class Greeting {
 
     private final long id;
@@ -13,7 +15,7 @@ public class Greeting {
     public long getId() {
         return id;
     }
-
+    @NotNull
     public String getContent() {
         return content;
     }

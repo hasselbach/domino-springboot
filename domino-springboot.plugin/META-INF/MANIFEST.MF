@@ -38,9 +38,20 @@ Bundle-ClassPath: .,
  WebContent/WEB-INF/lib/spring-core-4.3.8.RELEASE.jar,
  WebContent/WEB-INF/lib/spring-expression-4.3.8.RELEASE.jar,
  WebContent/WEB-INF/lib/spring-web-4.3.8.RELEASE.jar,
- WebContent/WEB-INF/lib/spring-webmvc-4.3.8.RELEASE.jar
+ WebContent/WEB-INF/lib/spring-webmvc-4.3.8.RELEASE.jar,
+ WebContent/WEB-INF/lib/hibernate-validator-6.0.2.Final.jar,
+ WebContent/WEB-INF/lib/hibernate-validator-annotation-processor-6.0.2.Final.jar,
+ WebContent/WEB-INF/lib/jackson-annotations-2.8.0.jar,
+ WebContent/WEB-INF/lib/javax.el-2.2.6.jar,
+ WebContent/WEB-INF/lib/javax.el-api-3.0.0.jar,
+ WebContent/WEB-INF/lib/slf4j-simple-1.7.25.jar,
+ WebContent/WEB-INF/lib/spring-boot-legacy-1.1.0.RELEASE.jar,
+ WebContent/WEB-INF/lib/spring-boot-starter-logging-1.5.3.RELEASE.jar,
+ WebContent/WEB-INF/lib/spring-boot-starter-web-1.5.3.RELEASE.jar,
+ WebContent/WEB-INF/lib/validation-api-2.0.1.Final.jar
 Require-Bundle: com.ibm.pvc.webcontainer;bundle-version="9.0.1",
  org.eclipse.core.runtime;bundle-version="3.4.0",
  com.ibm.pvc.servlet,
  com.ibm.notes.java.api;bundle-version="8.5.3",
- com.ibm.domino.osgi.core;bundle-version="9.0.1"
+ com.ibm.domino.osgi.core;bundle-version="9.0.1",
+ org.apache.commons.logging;bundle-version="1.1.2"
