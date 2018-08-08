@@ -4,6 +4,8 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +21,8 @@ import lotus.domino.NotesException;
 @RestController
 public class GreetingController {
 
+	Logger log = LoggerFactory.getLogger(GreetingController.class);
+	
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
@@ -29,12 +33,14 @@ public class GreetingController {
      */
     @RequestMapping(value = "/greeting", produces = "application/json")
     public Greeting greeting() {
+    	
     	String name = null;
 		try {
 			name = ContextInfo.getUserSession().getEffectiveUserName();
 		} catch (NotesException e) {
 			e.printStackTrace();
 		}
+		log.info("Username: " + name );
         return new Greeting(counter.incrementAndGet(),
                             String.format(template, name));
     }
