@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ibm.domino.osgi.core.context.ContextInfo;
 
 import lotus.domino.NotesException;
+import lotus.domino.NotesFactory;
+import lotus.domino.NotesThread;
+import lotus.domino.Session;
 
 @RestController
 public class GreetingController {
@@ -27,7 +30,7 @@ public class GreetingController {
     private final AtomicLong counter = new AtomicLong();
 
     /**
-     * sendet die Klasse "Greeting" als JSON zurück.
+     * sendet die Klasse "Greeting" als JSON zurÃ¼ck.
      * Pfad: "/greeting"
      * @return
      */
@@ -36,7 +39,10 @@ public class GreetingController {
     	
     	String name = null;
 		try {
-			name = ContextInfo.getUserSession().getEffectiveUserName();
+			NotesThread.sinitThread();
+			Session session = NotesFactory.createSession();
+			name = session.getEffectiveUserName();
+			NotesThread.stermThread(); 
 		} catch (NotesException e) {
 			e.printStackTrace();
 		}
@@ -46,7 +52,7 @@ public class GreetingController {
     }
     
     /**
-     * Methode sendet generell den Forbidden-Statuscode zurück
+     * Methode sendet generell den Forbidden-Statuscode zurï¿½ck
      * Pfad: /forbidden
      */
     @RequestMapping( "/forbidden")

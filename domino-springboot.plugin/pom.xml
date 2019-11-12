@@ -1,0 +1,149 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>domino-springbooot.plugin</groupId>
+	<artifactId>domino-springbooot.plugin</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<domino.directory>T:/IBM/Notes901</domino.directory>
+		<domino.osgi.shared.directory>${domino.directory}/osgi/shared/eclipse/plugins</domino.osgi.shared.directory>
+		<domino.osgi.rcp.directory>${domino.directory}/osgi/rcp/eclipse/plugins</domino.osgi.rcp.directory>
+		<domino.version>9.0.1</domino.version>
+		<domino.jarversion>9.0.1.20131004-1200</domino.jarversion>
+	</properties>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.3.RELEASE</version>
+	</parent>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-legacy</artifactId>
+			<version>1.1.0.RELEASE</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.0.2.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator-annotation-processor</artifactId>
+			<version>6.0.2.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>javax.el</artifactId>
+			<version>2.2.6</version>
+		</dependency>
+
+		<!-- Domino JARs -->
+		<dependency>
+			<groupId>com.ibm</groupId>
+			<artifactId>domino-api-binaries</artifactId>
+			<version>${domino.version}</version>
+			<scope>system</scope>
+			<systemPath>${domino.directory}/jvm/lib/ext/Notes.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ibm</groupId>
+			<artifactId>commons</artifactId>
+			<version>${domino.version}</version>
+			<scope>system</scope>
+			<systemPath>${domino.osgi.shared.directory}/com.ibm.commons_${domino.jarversion}/lwpd.commons.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ibm.domino</groupId>
+			<artifactId>napi</artifactId>
+			<version>${domino.version}</version>
+			<scope>system</scope>
+			<systemPath>${domino.osgi.shared.directory}/com.ibm.domino.napi_${domino.jarversion}/lwpd.domino.napi.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ibm.domino</groupId>
+			<artifactId>osgi-core</artifactId>
+			<version>${domino.version}</version>
+			<scope>system</scope>
+			<systemPath>${domino.osgi.shared.directory}/com.ibm.domino.osgi.core_${domino.jarversion}.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ibm.domino</groupId>
+			<artifactId>xsp-adapter-osgi</artifactId>
+			<version>${domino.version}</version>
+			<scope>system</scope>
+			<systemPath>${domino.osgi.shared.directory}/com.ibm.domino.xsp.adapter.osgi_${domino.jarversion}.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ibm.domino</groupId>
+			<artifactId>xsp-adapter</artifactId>
+			<version>${domino.version}</version>
+			<scope>system</scope>
+			<systemPath>${domino.osgi.shared.directory}/com.ibm.domino.xsp.adapter_${domino.jarversion}/lwpd.domino.adapter.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ibm.domino</groupId>
+			<artifactId>xsp-adapter-nsf</artifactId>
+			<version>${domino.version}</version>
+			<scope>system</scope>
+			<systemPath>${domino.osgi.shared.directory}/com.ibm.domino.xsp.adapter.nsf_${domino.jarversion}/lwpd.domino.adapter.nsf.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.framework</artifactId>
+			<version>1.9.0</version>
+		</dependency>
+
+	</dependencies>
+
+</project>
